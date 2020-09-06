@@ -1,0 +1,11 @@
+create table users (
+	username text primary key not null,
+	password_hash text not null,
+	hint text not null,
+	bio text not null);
+
+insert into users values ("noob", "8553127fedf5daacc26f3b677b58a856", "",  "this is noob's bio");
+insert into users values ("alice", "530bd2d24bff2d77276c4117dc1fc719", "My phone number (format: 000-000-0000)", "this is alice's bio");
+insert into users values ("bob", "4106716ae604fba94f1c05318f87e063", "My favorite 12 digit number (md5 hashed for extra security) [starts with a 10]", "this is bob's bio");
+insert into users values ("carl", "661ded81b6b99758643f19517a468331", " My favorite Greek God + My least favorite US state (no spaces)", "this is carl's bio");
+insert into users values ("dania", "58970d579d25f7288599fcd709b3ded3", "الحيوان المفضل لدي (6 أحرف عربية فقط)", "this is dania's bio");

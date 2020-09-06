@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Search for users</title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" placeholder="Search for user" name = "request" value = {{request.form.request}}>
+			<input type="submit" value="Search">
+		</form>
+	</body>
+	{% if response %}
+	<table>
+		<thead>
+		<tr>
+			<th>Name</th>
+			<th>Bio</th>
+		</tr>
+		</thead>
+		<tbody>
+				{% for row in response %}
+					<tr>
+						<td>{{row[0]}}</td>
+						<td>{{row[1]}}</td>
+					</tr>
+				{% endfor %}
+		</tbody>
+	</table>
+	{% endif %}
+	{% if error %}
+		<b> ERROR:</b> Something went wrong!
+	{% endif %}
+</html>
+

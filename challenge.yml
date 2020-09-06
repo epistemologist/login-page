@@ -1,0 +1,7 @@
+name: login_page
+category: Web
+points: 100
+visible: false
+flags:
+- uiuctf{Dump_4nd_unh45h_g37_d4t_c45h}
+

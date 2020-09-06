@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+      <h1>Please login</h1>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        <input type="submit" value="Login">
+      </form>
+      {% if error %}
+       <strong>Error:</strong> {{ error }}
+      {% endif %}
+      {% if password_hint %}
+        <strong>Password Hint:</strong> {{ password_hint }}
+      {% endif %}
+      <br>
+    <a href="{{ url_for('search') }}">Search for users</a>
+  </body>
+</html>
