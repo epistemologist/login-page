@@ -6,8 +6,11 @@ In creating this challenge, I wanted to create something that's close to how rea
 While this challenge is obviously much simpler than what was needed in the attacks carried out against large like LinkedIn and Yahoo, I still think it is instructive in learning how to use things like SQL injection and hashcat as well as the importance of sanitizing input when making any type of web application where you're dealing with sensitive information.
 Additionally, a hands-on exercise in how easy it is to crack some passwords can serve as a good reminder to always use strong passwords. 
 Relevant YouTube links: 
+
 ![SQL Injection](https://www.youtube.com/watch?v=ciNHn38EyRc)
+
 ![Password Cracking](https://www.youtube.com/watch?v=7U-RbOKanYs)
+
 ## Backend
 The backend is just a simple Python script that uses Flask for the web app and sqlite3 for processing information from the database. I know that the website is very barebones and doesn't look very good; however, I don't have much experience with web design and this is the first time that I have used these Python libraries to make a web app. Any suggestions/feedback on how I made the web app and any additions that could have been made would be greatly appreciated.
 ## Investigating the Website
