@@ -15,13 +15,21 @@ Relevant YouTube links:
 The backend is just a simple Python script that uses Flask for the web app and sqlite3 for processing information from the database. I know that the website is very barebones and doesn't look very good; however, I don't have much experience with web design and this is the first time that I have used these Python libraries to make a web app. Any suggestions/feedback on how I made the web app and any additions that could have been made would be greatly appreciated.
 ## Investigating the Website
 Upon opening the website, we are greeted with a login page.
+
 ![Login Page](Images/login_page.png)
+
 Trying some default credentials, we get an error notifying us that we have invalid credentials.
+
 ![Invalid Credentials](Images/invalid_creds.png)
+
 From the main page, we also have a way to search for users.
+
 ![Search Users](Images/search_users.png)
+
 Typing in a single 'a', we notice we get 3 matches for potential users:
+
 ![Got some results](Images/search_results.png)
+
 Note that only alice starts with an a, so we guess that the server is instead returning any usernames that have the character 'a' in them. 
 ## SQL Injection
 Taking a hint from the challenge description, we assume that the search feature is searching a database using SQLite behind the scenes. Since our search output is a table with two columns, we can guess that in the above search of just the character 'a', the server executed an SQL command like the following:
